@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%!
+public int multiply(int a, int b) {
+ int c = a * b;
+ return c;
+}
+%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,51 +19,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+10 * 25 = <%= multiply(10, 25) %>
 
-<%
-int i = 3;
-%>
-<h1>Lorem ipsum dolor.</h1>
-
-<%
-out.write(i);
-out.print(i);
-%>
-
-<%
-out.print("<h1>");
-out.print("hello");
-out.print("</h1>");
-%>
-
-<%
-out.print("<h2>");
-out.print(new java.util.Date());
-out.print("</h2>");
-%>
-
-<%
-if (i > 0) {
- out.print("<h3>");
- out.print("i가 0보다 크다");
- out.print("</h3>");
-} else {
- out.print("<h3>");
- out.print("i가 0보다 작다");
- out.print("</h3>");
-}
-%>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
 
 
 

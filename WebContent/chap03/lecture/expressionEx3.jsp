@@ -11,43 +11,43 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <%
-int i = 3;
+java.util.Set<Integer> lotto = new java.util.HashSet<>();
+
+while (lotto.size() < 6) {
+  int rand = (int) (Math.random() * 45 + 1);
+  lotto.add(rand); 
+}
+
 %>
-<h1>Lorem ipsum dolor.</h1>
-
+<ul>
 <%
-out.write(i);
-out.print(i);
+for (Integer i : lotto) {
 %>
-
-<%
-out.print("<h1>");
-out.print("hello");
-out.print("</h1>");
-%>
-
-<%
-out.print("<h2>");
-out.print(new java.util.Date());
-out.print("</h2>");
-%>
-
-<%
-if (i > 0) {
- out.print("<h3>");
- out.print("i가 0보다 크다");
- out.print("</h3>");
-} else {
- out.print("<h3>");
- out.print("i가 0보다 작다");
- out.print("</h3>");
+<li><%= i %></li>
+<%  
 }
 %>
+</ul>
+
+<hr />
+<ul>
+<%
+for (Integer i : lotto) {
+ out.print("<li>" + i + "</li>"); 
+}
+%>
+</ul>
+
 
 </body>
 </html>
+
+
+
+
+
+
 
 
 

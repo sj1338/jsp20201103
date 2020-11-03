@@ -11,43 +11,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 <%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("jsp");
-list.add("spring");
-list.add("dbms");
-%>
-
-<ul>
-<%
-for(String item : list) {
-%>
-<li>
-<% out.print(item); %>
-</li>
-<%
+int sum = 0;
+for (int i = 1; i <= 10; i++) {
+ sum = sum + i; 
 }
 %>
-
-</ul>
-
-<%
-boolean danger = true;
-%>
-<%
-if (danger) {
-%>
-<h1 class = "text-danger">DANGER!!!!</h1>
-<%
-} else {
-%>
-<h1 class="text-info">INFO~~~~~~</h1>
-<%
-}
-%>
-
+1 부터 10까지의 합은 <%= sum %>입니다.
 </body>
 </html>
+
+
+
+
+

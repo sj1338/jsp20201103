@@ -11,48 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%
-int i = 3;
-%>
-<h1>Lorem ipsum dolor.</h1>
-
-<%
-out.write(i);
-out.print(i);
-%>
-
-<%
-out.print("<h1>");
-out.print("hello");
-out.print("</h1>");
-%>
-
-<%
-out.print("<h2>");
-out.print(new java.util.Date());
-out.print("</h2>");
-%>
-
-<%
-if (i > 0) {
- out.print("<h3>");
- out.print("i가 0보다 크다");
- out.print("</h3>");
-} else {
- out.print("<h3>");
- out.print("i가 0보다 작다");
- out.print("</h3>");
-}
-%>
-
+1 부터 10까지의 합은
+<%= 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 %>
 </body>
 </html>
-
-
-
-
-
 
 
 

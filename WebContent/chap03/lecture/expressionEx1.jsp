@@ -11,43 +11,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%
-int i = 3;
-%>
 <h1>Lorem ipsum dolor.</h1>
-
 <%
-out.write(i);
-out.print(i);
+String name = "java";
 %>
 
+<%= name %>
+
+<hr />
 <%
-out.print("<h1>");
-out.print("hello");
-out.print("</h1>");
+java.util.List<String> list = new java.util.ArrayList<>();
+list.add("java");
+list.add("html");
+list.add("css");
+list.add("jquery");
+list.add("jsp");
 %>
 
+<ul>
 <%
-out.print("<h2>");
-out.print(new java.util.Date());
-out.print("</h2>");
+for (String item : list) {
 %>
-
+  <li><%= item %></li> 
 <%
-if (i > 0) {
- out.print("<h3>");
- out.print("i가 0보다 크다");
- out.print("</h3>");
-} else {
- out.print("<h3>");
- out.print("i가 0보다 작다");
- out.print("</h3>");
 }
 %>
+</ul>
 
+<hr />
+
+<%
+String status = "primary";
+%>
+
+<h1 class="text-<%= status %>">Lorem ipsum dolor.</h1>
 </body>
 </html>
+
+
+
+
 
 
 
