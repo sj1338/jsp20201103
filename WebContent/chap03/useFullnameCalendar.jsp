@@ -11,39 +11,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Lorem ipsum dolor.</h1>
 <%
-String name = "java";
+	java.util.Calendar cal = java.util.Calendar.getInstance();
 %>
 
-<%= name %>
-
-<hr />
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("html");
-list.add("css");
-list.add("jquery");
-list.add("jsp");
-%>
-
-<ul>
-<%
-for (String item : list) {
-%>
-  <li><%= item %></li> 
-<%
-}
-%>
-</ul>
-
-<hr />
-
-<%
-String status = "primary";
-%>
-
-<h1 class="text-<%= status %>">Lorem ipsum dolor.</h1>
+오늘은
+<%= cal.get(java.util.Calendar.YEAR) %> 년
+<%= cal.get(java.util.Calendar.MONTH) + 1 %> 월
+<%= cal.get(java.util.Calendar.DATE) %> 일
+	입니다.
 </body>
 </html>

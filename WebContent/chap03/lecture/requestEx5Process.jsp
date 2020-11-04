@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,39 +12,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Lorem ipsum dolor.</h1>
-<%
-String name = "java";
-%>
-
-<%= name %>
-
-<hr />
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("html");
-list.add("css");
-list.add("jquery");
-list.add("jsp");
-%>
-
-<ul>
-<%
-for (String item : list) {
-%>
-  <li><%= item %></li> 
-<%
-}
-%>
-</ul>
-
-<hr />
-
-<%
-String status = "primary";
-%>
-
-<h1 class="text-<%= status %>">Lorem ipsum dolor.</h1>
+<div class="container">
+  <a href="requestEx5Form.jsp">돌아가기</a> <br />
+  <%
+  String dan = request.getParameter("dan");
+  int d = Integer.parseInt(dan);
+  
+  for (int i = 1; i <= 9; i++) {
+  %>
+    <%= d %> X <%= i %> = <%= d*i %> <br />
+  <%
+  }
+  %>
+</div>
 </body>
 </html>

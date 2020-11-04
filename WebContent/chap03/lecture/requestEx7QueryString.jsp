@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,39 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Lorem ipsum dolor.</h1>
-<%
-String name = "java";
-%>
-
-<%= name %>
-
-<hr />
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("html");
-list.add("css");
-list.add("jquery");
-list.add("jsp");
-%>
-
-<ul>
-<%
-for (String item : list) {
-%>
-  <li><%= item %></li> 
-<%
-}
-%>
-</ul>
-
-<hr />
-
-<%
-String status = "primary";
-%>
-
-<h1 class="text-<%= status %>">Lorem ipsum dolor.</h1>
+query string : <%= request.getQueryString() %> <br />
+id: <%= request.getParameter("id") %> <br>
+pw: <%= request.getParameter("pw") %> <br />
 </body>
 </html>

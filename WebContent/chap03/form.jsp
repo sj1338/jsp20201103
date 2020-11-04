@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,39 +13,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Lorem ipsum dolor.</h1>
-<%
-String name = "java";
-%>
-
-<%= name %>
-
-<hr />
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("html");
-list.add("css");
-list.add("jquery");
-list.add("jsp");
-%>
-
-<ul>
-<%
-for (String item : list) {
-%>
-  <li><%= item %></li> 
-<%
-}
-%>
-</ul>
-
-<hr />
-
-<%
-String status = "primary";
-%>
-
-<h1 class="text-<%= status %>">Lorem ipsum dolor.</h1>
+<form action="viewParameter.jsp" method="post">
+이름 : <input type="text" name="name" size="10"> <br>
+주소 : <input type="text" name="address" size="30"> <br>
+좋아하는 동물:
+	<input type="checkbox" name="pet" value="dog">강아지
+	<input type="checkbox" name="pet" value="cat">고양이
+	<input type="checkbox" name="pet" value="pig">돼지
+<br>
+<input type = "submit" value ="전송">
+</form>
 </body>
 </html>

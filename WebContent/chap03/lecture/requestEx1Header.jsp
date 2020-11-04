@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +16,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-		Eaque voluptate quaerat architecto iusto distinctio nihil dolorum
-		provident quam quas illo eum praesentium tempora omnis excepturi
-		numquam laboriosam vel temporibus nostrum.</h1>
+	<%
+		Enumeration<String> headerNames = request.getHeaderNames();
+	
+	while(headerNames.hasMoreElements()) {
+		String name = headerNames.nextElement();
+		out.print(name);
+		out.print(":");
+		out.print(request.getHeader(name));
+		out.print("<br>");
+	}
+	%>
+
+
 </body>
 </html>
-
-
-
-
-

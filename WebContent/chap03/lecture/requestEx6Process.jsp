@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,39 +12,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Lorem ipsum dolor.</h1>
 <%
-String name = "java";
-%>
-
-<%= name %>
-
-<hr />
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("html");
-list.add("css");
-list.add("jquery");
-list.add("jsp");
-%>
-
-<ul>
-<%
-for (String item : list) {
-%>
-  <li><%= item %></li> 
-<%
+Set<Integer> lotto = new HashSet<>();
+while (lotto.size() < 6) {
+ lotto.add((int) (Math.random()*45 + 1)); 
 }
+
+String[] selected = request.getParameterValues("num");
+List<Integer> selectedList = new ArrayList<>();
+
+for (String s : selected) {
+ selectedList.add(Integer.valueOf(s.substring(1))); 
+}
+
+int cnt = 0;
+for (Integer s : selectedList) {
+ if (lotto.contains(s)) {
+  cnt++;
+ }
+}
+
+out.print("당첨번호:");
+out.print(lotto);
+out.print("<br>");
 %>
-</ul>
+선택한 번호 : <%= selectedList %><br />
+맞춘 갯수 : <%= cnt %>개
 
-<hr />
-
-<%
-String status = "primary";
-%>
-
-<h1 class="text-<%= status %>">Lorem ipsum dolor.</h1>
 </body>
 </html>
