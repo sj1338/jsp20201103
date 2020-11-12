@@ -3,6 +3,8 @@ SELECT * FROM bonus;
 SELECT * FROM department;
 SELECT * FROM salgrade;
 
+SELECT LOC FROM department WHERE DNO = 10;
+
 SELECT ename FROM employee;
 SELECT eno, ename FROM employee;
 SELECT eno, ename FROM employee;
