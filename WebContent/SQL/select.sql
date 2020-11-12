@@ -13,17 +13,17 @@ SELECT eno, ename FROM employee;
 SELECT ename, salary FROM employee;
 SELECT ename, salary, salary*12 FROM employee;
 SELECT ename, salary, salary / 100 FROM employee;
-SELECT ename, salary, salary*12 AS ø¨∫¿ FROM employee;
-SELECT ename, salary, salary*12 ø¨∫¿ FROM employee;
--- «— ¡Ÿ ¡÷ºÆ
+SELECT ename, salary, salary*12 AS Ïó∞Î¥â FROM employee;
+SELECT ename, salary, salary*12 Ïó∞Î¥â FROM employee;
+-- Ìïú Ï§Ñ Ï£ºÏÑù
 /*
-ø©∑Ø ¡Ÿ ¡÷ºÆ
+Ïó¨Îü¨ Ï§Ñ Ï£ºÏÑù
 */
 SELECT * FROM employee;
 SELECT ename, salary, commission, salary + commission FROM employee;
 SELECT ename, salary, commission, NVL(commission, 0) FROM employee;
 SELECT ename, salary + NVL(commission, 0) FROM employee;
-SELECT ename, salary + NVL(commission, 0) «’ FROM employee;
+SELECT ename, salary + NVL(commission, 0) Ìï© FROM employee;
 
 SELECT distinct(dno) FROM employee;
 SELECT distinct dno FROM employee;
