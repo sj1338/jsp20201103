@@ -16,6 +16,7 @@
 <form action="connectionEx4View.jsp">
 부서 번호 : <input type="number" name="dno"/>
 <br />
+
 <input type="submit" value="검색"/>
 </form>
 </body>
