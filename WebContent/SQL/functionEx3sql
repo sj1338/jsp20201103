@@ -1,0 +1,40 @@
+SELECT sysdate FROM DUAL;
+SELECT SYSDATE + 1 FROM DUAL;
+SELECT SYSDATE - 1 FROM DUAL;
+
+SELECT ename, hiredate, sysdate - hiredate FROM employee;
+SELECT ename, hiredate, ROUND(sysdate - hiredate) FROM employee;
+
+select sysdate from dual;
+
+select sysdate -1 어제, sysdate 오늘, sysdate +1 내일 from dual;
+
+select round(sysdate-hiredate) 근무일수 from employee;
+
+select round(sysdate) from dual;
+select round(sysdate, 'YEAR') FROM DUAL;
+SELECT ROUND(SYSDATE, 'MONTH')-1 FROM DUAL;
+
+SELECT TRUNC(SYSDATE, 'YEAR') FROM DUAL;
+SELECT TRUNC(SYSDATE, 'MONTH') FROM DUAL;
+
+SELECT HIREDATE, TRUNC(HIREDATE, 'MONTH') FROM employee;
+
+SELECT ENAME, SYSDATE, HIREDATE, TRUNC(MONTHS_BETWEEN(SYSDATE, HIREDATE)) WD FROM employee;
+
+SELECT MONTHS_BETWEEN(SYSDATE, TO_DATE('2019-10-13', 'YYYY-MM-DD')) FROM DUAL;
+
+SELECT ADD_MONTHS(SYSDATE, 12) FROM DUAL;
+SELECT ADD_MONTHS(SYSDATE, -12) FROM DUAL;
+
+SELECT ENAME, HIREDATE, ADD_MONTHS(HIREDATE, 6) FROM employee;
+
+SELECT SYSDATE, NEXT_DAY (SYSDATE, '토요일') FROM DUAL;
+SELECT SYSDATE, NEXT_DAY (SYSDATE, 3) FROM DUAL;
+
+SELECT ENAME, HIREDATE, LAST_DAY(HIREDATE) FROM employee;
+SELECT LAST_DAY(ADD_MONTHS(SYSDATE, -9)) FROM DUAL;
+
+
+
+

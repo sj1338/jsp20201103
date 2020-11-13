@@ -1,0 +1,64 @@
+SELECT sysdate FROM dual;
+
+SELECT LOWER(ENAME) AS NAME FROM employee;
+SELECT UPPER(ENAME) AS NAME FROM employee;
+SELECT INITCAP(ENAME) AS NAME FROM employee;
+SELECT INITCAP('oracle mania') AS NAME FROM DUAL;
+
+--102 ~ 104
+
+SELECT 'oracle mania', UPPER('oracle mania'), lower('oracle mania'), initcap('oracle mania') FROM DUAL;
+
+select ename, lower(ename), job, initcap(job) from employee;
+
+select eno, ename, dno from employee where ename = 'scott';
+
+select eno, ename, dno from employee where lower(ename) = 'scott';
+
+select eno, ename, dno from employee where initcap(ename) = 'Scott';
+
+select ename, length(ename) length from employee;
+
+SELECT LENGTH('웹 프로그래밍') 길이 FROM DUAL;
+
+SELECT LENGTH('OracleMania'), length('오라클매니아') from dual;
+
+select lengthb('OracleMania'), lengthB('오라클매니아') from dual;
+
+select 'Oracle', 'Mania', concat('Oracle', 'Mania') from dual;
+
+
+
+select ename || job from employee;
+select ename || ', ' || job from employee;
+
+
+
+select substr('Oracle mania', 4, 3), substr('Oracle mania', -4, 3) from dual;
+
+select * from employee where substr(ename, -1, 1) = 'N';
+
+select * from employee where substr(hiredate, 1, 2) = '87';
+select * from employee where SUBSTR(TO_CHAR(HIREDATE, 'YYYY-MM-DD'), 1, 4) = '1987';
+
+SELECT SUBSTR('Oracle mania', 4, 3), SUBSTRB('Oracle mania', 4, 3) FROM DUAL;
+
+SELECT SUBSTR('오라클매니아', 3, 4), SUBSTRB('오라클매니아', 3, 4) FROM DUAL;
+
+SELECT INSTR('Oracle mania', 'a') from dual;
+
+SELECT INSTR('Oracle mania', 'a', 5, 2) from dual;
+
+select * from employee where instr(ename, 'R', 3, 1) = 3;
+
+SELECT LPAD(SALARY, 10, '★') FROM employee;
+
+SELECT RPAD(SALARY, 10, '♬') FROM employee;
+
+SELECT 'Oracle mania ', LTRIM('   Oracle mania   '), RTRIM('   Oracle mania   ') FROM DUAL;
+
+SELECT 'Oracle mania', TRIM('O' FROM 'Oracle mania') FROM DUAL;
+
+SELECT TRIM('   Oracle mania   ') FROM DUAL;
+
+
