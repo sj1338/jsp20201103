@@ -13,14 +13,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="likeEx1View.jsp">
-이름 : <input type="text" name="name" /> <br />
-<input type="submit" value="검색" />
+<h1>부서별 봉급 통계 보기</h1>
+<form action="preparedStatementEx2View.jsp">
+<select name="dno" id="">
+	<option value="10">10</option>
+	<option value="20">20</option>
+	<option value="30">30</option>
+</select>
+<br />
+<input type="submit" value="통계 보기" />
 </form>
 </body>
 </html>
-
-
 
 
 

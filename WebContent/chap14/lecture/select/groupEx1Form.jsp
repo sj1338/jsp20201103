@@ -13,12 +13,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="likeEx1View.jsp">
-이름 : <input type="text" name="name" /> <br />
-<input type="submit" value="검색" />
+<h1>업무별 최대, 최소, 평균, 합계 봉급 보기</h1>
+
+<form action="groupEx2ViewPrepared.jsp">
+<select name="job" id="">
+  <option value="CLERK">CLERK</option>
+  <option value="SALESMAN">SALESMAN</option>
+  <option value="PRESIDENT">PRESIDENT</option>
+  <option value="MANAGER">MANAGER</option>
+  <option value="ANALYST">ANALYST</option>
+</select>
+<br />
+<input type="submit" value="보기" />
 </form>
 </body>
 </html>
+
+
+
 
 
 

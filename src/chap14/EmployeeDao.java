@@ -48,12 +48,8 @@ public class EmployeeDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		return list;
 	}
-	
 	public static List<String> getNameLike(String name) {
 		List<String> list = new ArrayList<>();
 		
