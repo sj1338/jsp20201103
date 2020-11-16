@@ -4,10 +4,12 @@
 <%@ page import="java.sql.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <%
-String eno = request.getParameter("eno");
-//String sql = "SELECT ename FROM employee WHERE eno = " + eno;
-String sql = "SELECT ename FROM employee " 
-           + "WHERE eno = ? ";
+String dno = request.getParameter("dno");
+String name = request.getParameter("name");
+name = name.toUpperCase();
+
+String sql = "SELECT ename FROM employee "
+           + "WHERE dno = ? AND ename LIKE ? ";
 
 Class.forName("oracle.jdbc.driver.OracleDriver");
 String url = "jdbc:oracle:thin:@localhost:1521:orcl";
@@ -15,24 +17,21 @@ String id = "c##mydbms";
 String pw = "admin";
 
 Connection con = DriverManager.getConnection(url, id, pw);
-//Statement stmt = con.createStatement();
-PreparedStatement stmt = con.prepareStatement(sql);
+PreparedStatement pstmt = con.prepareStatement(sql);
+pstmt.setInt(1, Integer.valueOf(dno));
+pstmt.setString(2, "%" + name + "%");
 
-stmt.setInt(1, Integer.parseInt(eno));
+ResultSet rs = pstmt.executeQuery();
 
-ResultSet rs = stmt.executeQuery();
+List<String> list = new ArrayList<>();
 
-String name = "";
-if (rs.next()) {
-  name = rs.getString(1);
+while (rs.next()) {
+  list.add(rs.getString(1)); 
 }
-
-stmt.close();
+	
+pstmt.close();
 con.close();
-
 %>
-<!-- ?eno = 7499 입력 -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +43,15 @@ con.close();
 <title>Insert title here</title>
 </head>
 <body>
-<h1><%= name %></h1>
+<h1><%= dno %>부서 직원 목록</h1>
+<ul>
+<%
+for (String n : list) {
+%>
+  <li><%= n %></li>
+<%
+}
+%>
+</ul>
 </body>
 </html>

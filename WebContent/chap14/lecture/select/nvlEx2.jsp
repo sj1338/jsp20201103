@@ -4,7 +4,7 @@
 <%@ page import="java.sql.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <%
-class Emp {
+class Emp { // 리스트 두개 만들기 싫어서, 두개를 하나로 합친 클래스 emp를 새로 생성
   private String ename;
   private int sal;
   
@@ -21,7 +21,7 @@ class Emp {
     return this.sal; 
   }
 }
-String sql = "SELECT ename, salary*12+NVL(commission, 0) "
+String sql = "SELECT ename, salary*12+NVL(commission, 0) " // null이면 0을 대신 표기
            + "FROM employee";
 List<Emp> list = new ArrayList<>();
 // 1~7

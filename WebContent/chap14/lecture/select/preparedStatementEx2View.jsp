@@ -5,7 +5,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <%
 String dno = request.getParameter("dno");
-String sql = "SELECT max(salary), min(salary), avg(salary), "
+String sql = "SELECT max(salary), min(salary), avg(salary), " // 1, 2, 3, 4 순서 아래 기입
            + "sum(salary) "
            + "FROM employee "
            + "WHERE dno = ?";
