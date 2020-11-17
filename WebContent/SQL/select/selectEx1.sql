@@ -3,31 +3,33 @@ SELECT * FROM bonus;
 SELECT * FROM department;
 SELECT * FROM salgrade;
 
-SELECT LOC FROM department WHERE DNO = 10;
---SELECT ENAME FROM employee WHERE ENO = ?;
-SELECT LOC FROM department WHERE dno = 20;
-
 SELECT ename FROM employee;
 SELECT eno, ename FROM employee;
-SELECT eno, ename FROM employee;
+SELECT ename, eno FROM employee;
 SELECT ename, salary FROM employee;
 SELECT ename, salary, salary*12 FROM employee;
-SELECT ename, salary, salary / 100 FROM employee;
-SELECT ename, salary, salary*12 AS Ïó∞Î¥â FROM employee;
-SELECT ename, salary, salary*12 Ïó∞Î¥â FROM employee;
--- Ìïú Ï§Ñ Ï£ºÏÑù
+SELECT ename, salary / 100 FROM employee;
+SELECT ename, salary + 100 FROM employee;
+SELECT ename, salary - 100 FROM employee;
+SELECT ename, salary, salary*12 AS ø¨∫¿ FROM employee;
+SELECT ename, salary, salary*12 ø¨∫¿ FROM employee;
+-- «— ¡Ÿ ¡÷ºÆ
 /*
-Ïó¨Îü¨ Ï§Ñ Ï£ºÏÑù
+  ø©∑Ø¡Ÿ ¡÷ºÆ
 */
 SELECT * FROM employee;
 SELECT ename, salary, commission, salary + commission FROM employee;
 SELECT ename, salary, commission, NVL(commission, 0) FROM employee;
 SELECT ename, salary + NVL(commission, 0) FROM employee;
-SELECT ename, salary + NVL(commission, 0) Ìï© FROM employee;
+SELECT ename, salary + NVL(commission, 0) «’ FROM employee;
 
 SELECT distinct(dno) FROM employee;
-SELECT distinct dno FROM employee;
+SELECT 
+  distinct dno 
+FROM employee;
 
-select
-    distinct DNO
+select 
+  distinct DNO 
 from EMPLOYEE;
+
+
