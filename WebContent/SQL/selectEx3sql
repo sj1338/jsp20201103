@@ -1,0 +1,20 @@
+select * from employee;
+SELECT * FROM employee WHERE ename = 'WARD';
+SELECT * FROM employee WHERE ename LIKE 'W%';
+SELECT * FROM employee WHERE ename LIKE '%D';
+SELECT * FROM employee WHERE ename LIKE '%D%';
+SELECT * FROM employee WHERE ename LIKE '_A__'; // 4글자에 두번째가 A
+SELECT * FROM employee WHERE ename LIKE '_A%';
+SELECT * FROM employee WHERE ename LIKE 'F%';
+SELECT * FROM employee WHERE ename = 'F'; // 실패
+SELECT * FROM employee WHERE ename LIKE '%M%';
+SELECT * FROM employee WHERE ename LIKE '%N';
+SELECT * FROM employee WHERE ename LIKE '_A%';
+SELECT * FROM employee WHERE ename LIKE '__A%';
+SELECT * FROM employee WHERE ename NOT LIKE '%A%';
+
+SELECT * FROM employee WHERE commission is null;
+SELECT * FROM employee WHERE commission is not null;
+
+select dno, ename from employee
+order by dno DESC, ename ASC;
