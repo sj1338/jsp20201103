@@ -25,7 +25,8 @@
 <pre>
 <c:out value="${list[param.id].body }" />
 </pre>
-
+<br />
+<a href="jstlEx25.jsp" >게시글 작성</a>
 </body>
 </html>
 
