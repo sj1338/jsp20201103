@@ -15,16 +15,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="true">
-  <h1>Lorem.</h1>
-</c:if>
-
-<my:myFirst />
-
-<my:myFirst />
-
-<my:mySecond />
-
-
+<my:ex10dynamic attr0="value0" attr1="value1" attr2="value2"></my:ex10dynamic> <!-- 1이 key 2가 val -->
 </body>
 </html>

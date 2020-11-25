@@ -15,16 +15,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="true">
-  <h1>Lorem.</h1>
-</c:if>
-
-<my:myFirst />
-
-<my:myFirst />
-
-<my:mySecond />
-
-
+<my:ex2bodyEmpty/>
+<hr />
+<my:ex2bodyEmpty></my:ex2bodyEmpty>
+<hr />
+<%--
+<my:ex2bodyEmpty/> </my:ex2bodyEmpty>
+ --%>
+<hr />
+<my:ex2bodyScriptless/>
+<hr />
+<my:ex2bodyScriptless>
+  body content
+</my:ex2bodyScriptless>
+<hr />
+<%-- 스크립트 요소 안됨
+:scriptlet, expression, declaration
+<my:ex2bodyScriptless>
+  <%
+  out.print("hello");
+  %>
+</my:ex2bodyScriptless>
+ --%>
+<hr />
+<my:ex2bodyScriptless>
+  ${param.age + 100 }
+</my:ex2bodyScriptless>
 </body>
 </html>

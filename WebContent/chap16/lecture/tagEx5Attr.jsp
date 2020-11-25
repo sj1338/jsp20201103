@@ -15,16 +15,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="true">
-  <h1>Lorem.</h1>
+<c:if test="true" var="abc">
+  <h3>실행</h3>
 </c:if>
-
-<my:myFirst />
-
-<my:myFirst />
-
-<my:mySecond />
-
-
+<my:ex5attr myAttr="my value" myAttr2="my value2"/>  
 </body>
 </html>
+
+
+

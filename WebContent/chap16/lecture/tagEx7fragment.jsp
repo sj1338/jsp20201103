@@ -15,16 +15,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="true">
-  <h1>Lorem.</h1>
-</c:if>
+<my:ex7fragment>
+  <jsp:attribute name="title" >
+    <h1>my title</h1>
+  </jsp:attribute>
+  <jsp:body>
+    <h1>jsp body</h1>
+  </jsp:body>
+</my:ex7fragment>
 
-<my:myFirst />
-
-<my:myFirst />
-
-<my:mySecond />
+<hr />
 
 
 </body>
 </html>
+
+
+
+

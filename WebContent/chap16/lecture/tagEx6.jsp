@@ -15,16 +15,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="true">
-  <h1>Lorem.</h1>
-</c:if>
+<my:ex6pageNation end="3" begin="1"></my:ex6pageNation>
 
-<my:myFirst />
+<hr />
 
-<my:myFirst />
-
-<my:mySecond />
-
-
+<my:ex6pageNation end="10" begin="5"></my:ex6pageNation>
 </body>
 </html>
+
+
+
+
+

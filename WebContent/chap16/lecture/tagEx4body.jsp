@@ -15,16 +15,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="true">
-  <h1>Lorem.</h1>
-</c:if>
-
-<my:myFirst />
-
-<my:myFirst />
-
-<my:mySecond />
-
-
+<my:ex4bodyTagDependent>
+  <% 
+  out.print("hello");
+  %>
+  ${param.abc }
+</my:ex4bodyTagDependent>
 </body>
 </html>
+
+
+

@@ -15,16 +15,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="true">
-  <h1>Lorem.</h1>
-</c:if>
-
-<my:myFirst />
-
-<my:myFirst />
-
-<my:mySecond />
-
-
+<my:ex3bodyScriptless>
+  <h1>hello</h1>
+</my:ex3bodyScriptless>
 </body>
 </html>
+
+
+
+
