@@ -1,66 +1,48 @@
-package chap17;
+package chap17.sample2;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import chap05.Post;
+
 /**
- * Servlet implementation class servletEx12
+ * Servlet implementation class RemoveServlet
  */
-@WebServlet("/ex12")
-public class servletEx12 extends HttpServlet {
+@WebServlet("/sample2/remove")
+public class RemoveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private List<Post> list;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public servletEx12() {
+    public RemoveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
     
     @Override
     public void init() throws ServletException {
-    	ServletContext application = getServletContext();
-    	List<String> list = new ArrayList<>();
-    	list.add("java");
-    	list.add("css");
-    	list.add("servlet");
-    	list.add("tomcat");
-    	application.setAttribute("database", list);
-    	
+    	list = (List<Post>) getServletContext().getAttribute("posts");
     	super.init();
     }
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		if (id == null ) {
-			id = "0";
-		}
-		int idx = Integer.valueOf(id);
+		String idx = request.getParameter("idx");
+		int index = Integer.parseInt(idx);
 		
-		ServletContext application = getServletContext();
-		List<String> list = (List<String>) application.getAttribute("database");
-		String name = list.get(idx);
+		list.remove(index);
 		
-		// request attribute에 set
-		request.setAttribute("name", name);
-		
-		// foward
-		String path = "/chap17/lecture/servletEx12View.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/sample2/list");
 	}
 
 	/**
