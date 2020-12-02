@@ -32,5 +32,12 @@ VALUES (40, 'OPERATIONS', NULL);
 
 COMMIT;
 
+-- ORACLE : NULL ''
+-- 책 (229 쪽)
+DESC dept_copy;
+INSERT INTO dept_copy
+VALUES (50, 'COMPUTING', '');
+SELECT * FROM dept_copy;
+COMMIT;
 
 
