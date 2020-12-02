@@ -1,6 +1,3 @@
-SELECT * FROM employee;
-SELECT * FROM salgrade;
-
 SELECT * FROM employee e, department d;
 
 SELECT * FROM employee e1, employee e2;

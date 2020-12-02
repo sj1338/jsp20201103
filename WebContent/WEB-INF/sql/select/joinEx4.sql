@@ -33,8 +33,4 @@ SELECT e1.eno, e1.ename, e1.manager, e2.eno, e2.ename
 FROM employee e1 FULL OUTER JOIN employee e2
 ON e1.manager = e2.eno;
 
-----------------------------
-
-SELECT e1.ename as "사원", e2.ename as "매니저"
-FROM employee e1, employee e2
-WHERE e1.manager = e2.eno;
+select * from employee;
