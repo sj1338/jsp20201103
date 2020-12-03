@@ -52,15 +52,3 @@ if (code != null && code.equals("1")) {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

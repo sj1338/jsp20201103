@@ -23,6 +23,9 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	public User() {
+		
+	}
 	public User(String name, String address, int age) {
 		super();
 		this.name = name;
