@@ -2,6 +2,7 @@ package chap17.sample3;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 import javax.servlet.ServletException;
@@ -11,19 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
-import chap20.lecture.DBUtil;
 
 /**
- * Servlet implementation class AddServlet
+ * Servlet implementation class UpdateServlet
  */
-@WebServlet("/sample3/post/add")
-public class AddServlet extends HttpServlet {
+@WebServlet("/sample3/post/update")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddServlet() {
+    public UpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,64 +41,49 @@ public class AddServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
 		
-		if (title != null && body != null 
-				&& !title.isEmpty() && !body.isEmpty()) {
-			Post post = new Post();
-			post.setTitle(title);
-			post.setBody(body);
-			
-			int row = insert(post);
-			
-			if (row == 1) {
-				System.out.println("insert 성공~");
-				
-			} else {
-				System.out.println("insert 오류....");
-				
-			}
-		}
 		
-		response.sendRedirect("main");
+		Post post = new Post();
+		post.setId(Integer.parseInt(id));
+		post.setTitle(title);
+		post.setBody(body);
+		
+		update(post);
+		
+		response.sendRedirect(request.getContextPath()+ "/sample3/post/main");
 	}
 
-	private int insert(Post post) {
-		String sql = "INSERT INTO post "
-				+ "(title, body) "
-				+ "VALUES (?, ?)";
+	private void update(Post post) {
+		String sql = "UPDATE post "
+				+ "SET title=?, body=? "
+				+ "WHERE id=?";
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		// jdbc:oracle:thin:@mydb501_high?TNS_ADMIN=C:\\Users\\mydb00\\Documents\\Wallet_mydb501
-//		String url = "jdbc:oracle:thin:@mydb501_high?TNS_ADMIN=C:\\Users\\admin\\Documents\\Wallet_mydb501";
-		String user = "c##mydbms"; // mydb00
-		String password = "admin"; // adminAdmin12
+		String user = "c##mydbms";
+		String password = "admin";
 		
-		int row = 0;
-		try {
-			// 2.연결생성
-			Connection con = DBUtil.getConnection();
-			// 3.statement생성
-			PreparedStatement pstmt = con.prepareStatement(sql);
+		try (
+				Connection con = DriverManager.getConnection(url, user, password);
+				PreparedStatement pstmt = con.prepareStatement(sql);
+		) {
 			pstmt.setString(1, post.getTitle());
 			pstmt.setString(2, post.getBody());
-			// 4.쿼리 실행
-			row = pstmt.executeUpdate();
-			// 5.결과 처리
+			pstmt.setInt(3, post.getId());
+			pstmt.executeUpdate();
 			
-			// 6. statement, 연결 닫기
-			pstmt.close();
-			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return row;
+		
 	}
+	
+	
+
 }
-
-
 
 
 

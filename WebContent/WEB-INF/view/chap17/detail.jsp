@@ -18,42 +18,34 @@ $(function() {
 	$("#modify-btn").click(function() {
 		$("#title-input").removeAttr("readonly");
 		$("#body-textarea").removeAttr("readonly");
-		$(this).hide();
 		$("#submit-btn").removeAttr("hidden");
-	});
-	$("#remove-btn").click(function() {
-		var c = confirm("삭제하시겠습니까?");
-		if (c) {
-			location.href="remove?idx=${param.idx}";
-		}
 	});
 });
 </script>
 </head>
 <body>
-<c:url value="/sample3/modify" var="modifyUrl" >
-  <c:param name="idx">${param.idx }</c:param>
+<c:url value="/sample3/post/remove" var="removeURL">
+  <c:param name="id" value="${post.id }" />
 </c:url>
 
 <div class="container">
-  <h1>글 보기</h1>
-  <form action="${modifyUrl }" method="post">
-  
-  제목 : <input id="title-input" name="title" type="text" readonly value="${post.title }" /> <br />
-  <textarea id="body-textarea" name="body" readonly cols="30" rows="5">${post.body }</textarea>
-  <br />
-  <input type="submit" id="submit-btn"
-         hidden value="등록" 
-         class="btn btn-secondary" />
+  <h1>게시물 보기</h1>
+  <form action="<%= request.getContextPath() %>/sample3/post/update" method="post">
+    <input type="text" hidden value="${post.id }" name="id"/>
+    제목 : <input id="title-input" name="title" type="text" value="${post.title }" readonly />
+    <br />
+    <textarea id="body-textarea" name="body" readonly cols="30" rows="5">${post.body }</textarea>
+    <br />
+    <input class="btn btn-secondary" hidden id="submit-btn" type="submit" value="전송" />
   </form>
-  <button class="btn btn-secondary" id="modify-btn">수정</button>
-  
-  <br />
-  
-  <button class="btn btn-danger" id="remove-btn">삭제</button>
+  <button class="btn btn-warning" id="modify-btn">수정</button>
+  <a class="btn btn-danger" href="${removeURL }" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
 </div>
 </body>
 </html>
+
+
+
 
 
 
